@@ -1,0 +1,20 @@
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.movingGradient {
+  background: linear-gradient(-45deg, #0ea5e9, #06b6d4, #14b8a6, #22d3ee);
+  background-size: 400% 400%;
+  animation: gradientMove 5s ease infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+} 
