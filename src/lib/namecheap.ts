@@ -1,7 +1,3 @@
-import { XMLParser } from 'fast-xml-parser';
-import * as https from 'https';
-import * as http from 'http';
-import { URL } from 'url';
 import * as dns from 'dns';
 import whois from 'whois';
 import { promisify } from 'util';
@@ -28,11 +24,6 @@ const whoisLookup = async (domain: string): Promise<string> => {
   }
 };
 
-const API_KEY = process.env.NAMECHEAP_API_KEY;
-const API_USER = process.env.NAMECHEAP_API_USER;
-const CLIENT_IP = process.env.NAMECHEAP_CLIENT_IP;
-const USERNAME = process.env.NAMECHEAP_USERNAME;
-const ENVIRONMENT = process.env.NEXT_PUBLIC_NAMECHEAP_ENVIRONMENT || 'sandbox';
 const USE_WHOIS = process.env.USE_WHOIS !== 'false'; // Default to using WHOIS
 const MAX_PARALLEL = 5; // Maximum number of parallel WHOIS lookups
 
@@ -56,18 +47,9 @@ function availLog(...args: Parameters<typeof console.log>) {
   }
 }
 
-if (!isAvailabilityCheckQuiet()) {
-  console.log(`Using Namecheap API in ${ENVIRONMENT} mode`);
-  if (USE_WHOIS) {
-    console.log('WHOIS lookups enabled for domain availability checking');
-  }
+if (!isAvailabilityCheckQuiet() && USE_WHOIS) {
+  console.log('WHOIS lookups enabled for domain availability checking');
 }
-
-// XML parser options
-const xmlParserOptions = {
-  ignoreAttributes: false,
-  attributeNamePrefix: '@_'
-};
 
 // Rate limiting configuration
 const RATE_LIMIT_WINDOW = 2000; // 2 seconds
@@ -692,21 +674,3 @@ export async function checkMultipleDomains(domains: string[]) {
   
   return results;
 }
-
-/**
- * Simple fetch function that doesn't use a proxy
- */
-async function fetchDirectly(url: string): Promise<string> {
-  try {
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error ${response.status}: ${response.statusText}`);
-    }
-    
-    return response.text();
-  } catch (error) {
-    console.error(`Error fetching ${url}:`, error);
-    throw error;
-  }
-} 

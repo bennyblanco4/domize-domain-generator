@@ -1,13 +1,11 @@
 /**
  * TLD Validator Utility
  * 
- * This utility provides validation for Top-Level Domains (TLDs) supported by Namecheap.
+ * This utility provides validation for commonly used Top-Level Domains (TLDs).
  * The list includes common gTLDs, ccTLDs, and new gTLDs that are widely supported.
- * 
- * Based on Namecheap's supported TLD list as of 2025.
  */
 
-// Comprehensive list of TLDs supported by Namecheap
+// Comprehensive list of supported TLDs
 // This includes generic TLDs (gTLDs), country-code TLDs (ccTLDs), and new gTLDs
 export const SUPPORTED_TLDS = [
   // Popular generic TLDs
@@ -106,7 +104,7 @@ export const SUPPORTED_TLDS = [
 ];
 
 /**
- * Validates if a TLD is supported by Namecheap
+ * Validates if a TLD is in the supported list
  * @param tld - The TLD to validate (with or without leading dot)
  * @returns true if the TLD is supported, false otherwise
  */

@@ -188,7 +188,7 @@ export default function DomainGenerator() {
     
     // Validate the TLD
     if (!isValidTLD(customTld.trim())) {
-      setTldError('Invalid TLD. Please enter a valid domain extension supported by Namecheap.');
+      setTldError('Invalid TLD. Please enter a valid domain extension.');
       return;
     }
     
@@ -927,9 +927,7 @@ export default function DomainGenerator() {
                 <div 
                   key={`streaming-${index}`}
                   onClick={() => {
-                    const namecheapUrl = `https://www.namecheap.com/domains/registration/results/?domain=${suggestion.name}`;
-                    const affiliateUrl = `https://namecheap.pxf.io/c/6101193/2176068/5618?url=${encodeURIComponent(namecheapUrl)}`;
-                    window.open(affiliateUrl, '_blank');
+                    window.open(`https://www.namecheap.com/domains/registration/results/?domain=${suggestion.name}`, '_blank');
                   }}
                   className={`backdrop-blur-sm border rounded-lg p-6 flex justify-between items-center hover:scale-105 transition-all duration-300 cursor-pointer animate-slide-in-up ${
                     isDarkMode 
@@ -984,9 +982,7 @@ export default function DomainGenerator() {
                 <div 
                   key={`final-${index}`}
                   onClick={() => {
-                    const namecheapUrl = `https://www.namecheap.com/domains/registration/results/?domain=${suggestion.name}`;
-                    const affiliateUrl = `https://namecheap.pxf.io/c/6101193/2176068/5618?url=${encodeURIComponent(namecheapUrl)}`;
-                    window.open(affiliateUrl, '_blank');
+                    window.open(`https://www.namecheap.com/domains/registration/results/?domain=${suggestion.name}`, '_blank');
                   }}
                   className={`backdrop-blur-sm border rounded-lg p-6 flex justify-between items-center hover:scale-105 transition-all duration-300 cursor-pointer ${
                     isDarkMode 

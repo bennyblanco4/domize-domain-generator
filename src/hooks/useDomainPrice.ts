@@ -55,7 +55,7 @@ export const useDomainPrice = (domainName: string) => {
         const data = await response.json();
         
         if (data.error) {
-          throw new Error(`Namecheap API error: ${data.error}`);
+          throw new Error(`Pricing API error: ${data.error}`);
         }
         
         // Cache the result

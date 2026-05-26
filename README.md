@@ -1,8 +1,12 @@
+<p align="center">
+  <img src="public/lightlogo.svg" alt="Domize" width="180" />
+</p>
+
 # Domain Name Generator — AI-Powered Domain Search
 
 > Find the perfect domain name for your project in seconds using AI.
 
-An open-source, full-stack web application built with **Next.js 15** that generates creative, brandable domain name suggestions powered by **Google Gemini AI**, checks domain availability (DNS/WHOIS with optional Domainr/Namecheap), and displays real-time pricing — all in a modern, dark/light-mode UI. A **CLI** reuses the same generation and checks without touching the frontend.
+An open-source, full-stack web application built with **Next.js 15** that generates creative, brandable domain name suggestions powered by **Google Gemini AI**, checks domain availability (DNS/WHOIS with optional Domainr), and displays real-time pricing — all in a modern, dark/light-mode UI. A **CLI** reuses the same generation and checks without touching the frontend.
 
 ---
 
@@ -26,7 +30,7 @@ An open-source, full-stack web application built with **Next.js 15** that genera
 | Styling | Tailwind CSS v4 |
 | UI Components | shadcn/ui + Radix UI |
 | AI | Google Gemini 2.0 Flash |
-| Availability | DNS / WHOIS (+ optional Domainr, Namecheap) |
+| Availability | DNS / WHOIS (+ optional Domainr) |
 | Animations | Framer Motion |
 
 ---
@@ -76,7 +80,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 |----------|----------|-------------|
 | `GEMINI_API_KEY` | Yes | Google Gemini API key for AI generation |
 | `RAPIDAPI_KEY` | Optional | RapidAPI key for Domainr (more accurate checks) |
-| `NAMECHEAP_*` | Optional | Namecheap API vars (see `.env.example`) |
 
 Copy `.env.example` to `.env.local` and fill in the values. **Never commit `.env.local`.**
 
@@ -94,7 +97,6 @@ src/
 ├── components/             # Shared UI components
 │   ├── ui/                 # shadcn/ui primitives
 │   ├── DomainCard.tsx      # Domain result card
-│   ├── DomainPricing.tsx   # Pricing display
 │   └── ...
 ├── context/                # React context (Favourites, Theme)
 ├── hooks/                  # Custom React hooks

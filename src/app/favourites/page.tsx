@@ -85,13 +85,12 @@ const FavouritesPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {favorites.map((domain) => {
                 const namecheapUrl = `https://www.namecheap.com/domains/registration/results/?domain=${domain}`;
-                const affiliateUrl = `https://namecheap.pxf.io/c/6101193/2176068/5618?url=${encodeURIComponent(namecheapUrl)}`;
                 
                 return (
                   <div
                     key={domain}
                     onClick={() => {
-                      window.open(affiliateUrl, '_blank');
+                      window.open(namecheapUrl, '_blank');
                     }}
                     className={`backdrop-blur-sm border rounded-lg p-6 flex justify-between items-center hover:scale-105 transition-all duration-300 cursor-pointer ${
                       isDarkMode 
