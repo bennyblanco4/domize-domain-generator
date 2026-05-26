@@ -6,7 +6,7 @@
 
 > Find the perfect domain name for your project in seconds using AI.
 
-An open-source, full-stack web application built with **Next.js 15** that generates creative, brandable domain name suggestions powered by **Google Gemini AI**, checks domain availability (DNS/WHOIS with optional Domainr), and displays real-time pricing — all in a modern, dark/light-mode UI. A **CLI** reuses the same generation and checks without touching the frontend.
+An open-source, full-stack web application built with **Next.js 15** that generates creative, brandable domain name suggestions powered by **Google Gemini AI** and checks domain availability (DNS/WHOIS with optional Domainr). A **CLI** reuses the same generation and checks without touching the frontend.
 
 ---
 
@@ -14,7 +14,6 @@ An open-source, full-stack web application built with **Next.js 15** that genera
 
 - **AI-Generated Suggestions** — Describe your idea and get 12+ creative, brandable domain names instantly (streaming output)
 - **Live Availability Checking** — Each domain is checked with DNS/WHOIS (and optional third-party APIs if configured)
-- **Domain Pricing** — See registration prices per TLD so you can compare costs at a glance
 - **Advanced Filters** — Filter by TLD (`.com`, `.io`, `.ai`, `.co`, etc.), name length, and more
 - **Favourites** — Save domains you love locally; view and manage them on a dedicated page
 - **CLI** — Run the same Gemini + availability pipeline from the terminal (`npm run cli`) without starting the Next.js UI

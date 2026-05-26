@@ -19,11 +19,6 @@ const FeatureBadges = () => {
       description: 'AI-powered domain recommendations'
     },
     {
-      icon: '💰',
-      title: 'Live Pricing',
-      description: 'Real-time pricing from registrars'
-    },
-    {
       icon: '🚀',
       title: 'Live Availability',
       description: 'Instant availability checking'
@@ -31,7 +26,7 @@ const FeatureBadges = () => {
   ];
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8 w-full max-w-4xl mx-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8 w-full max-w-4xl mx-auto">
       {features.map((feature, index) => (
         <div
           key={index}
