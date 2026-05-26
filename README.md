@@ -14,7 +14,6 @@ An open-source, full-stack web application built with **Next.js 15** that genera
 - **Advanced Filters** — Filter by TLD (`.com`, `.io`, `.ai`, `.co`, etc.), name length, and more
 - **Favourites** — Save domains you love locally; view and manage them on a dedicated page
 - **CLI** — Run the same Gemini + availability pipeline from the terminal (`npm run cli`) without starting the Next.js UI
-- **Dark / Light Mode** — Persisted theme preference with no flash on load
 
 ---
 
@@ -136,9 +135,3 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for gu
 3. Commit your changes (`git commit -m "Add your feature"`)
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
-
----
-
-## License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
