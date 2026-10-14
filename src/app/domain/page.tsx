@@ -80,6 +80,29 @@ export default function DomainGenerator() {
   const isDeletingRef = useRef(false);
   const dotsIndexRef = useRef(0);
   const customTldInputRef = useRef<HTMLInputElement | null>(null);
+  const searchFormRef = useRef<HTMLDivElement | null>(null);
+
+  // Close the floating settings dropdown on outside click or Escape
+  useEffect(() => {
+    if (!advanced) return;
+    const close = () => {
+      setAdvancedAnimating(true);
+      setAdvanced(false);
+      setTimeout(() => setAdvancedAnimating(false), 200);
+    };
+    const handlePointerDown = (e: PointerEvent) => {
+      if (searchFormRef.current && !searchFormRef.current.contains(e.target as Node)) close();
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [advanced]);
   
   const baseTldOptions = ['.com', '.io', '.ai', '.app', '.dev', '.tech', '.co', '.me', '.net', '.org'];
   const tldOptions = [...baseTldOptions, ...customTlds];
@@ -539,7 +562,7 @@ export default function DomainGenerator() {
         </p>
 
         {/* Search Form */}
-        <div className="mt-6 md:mt-12 w-full max-w-2xl relative group">
+        <div ref={searchFormRef} className="mt-6 md:mt-12 w-full max-w-2xl relative group z-30">
           {/* Gradient Border Effect */}
           <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
           
@@ -588,7 +611,7 @@ export default function DomainGenerator() {
                     // Wait for animation to complete (300ms matches the transition duration)
                     setTimeout(() => {
                       setAdvancedAnimating(false);
-                    }, 300);
+                    }, 200);
                   }}
                   disabled={isGenerating}
                   className={`p-2 transition rounded-lg ${
@@ -631,13 +654,16 @@ export default function DomainGenerator() {
             </div>
 
             {/* Advanced Options */}
-            <div className={`border-t transition-all duration-300 ease-in-out overflow-hidden ${
-              advanced 
-                ? 'max-h-[500px] opacity-100 p-4' 
-                : 'max-h-0 opacity-0 p-0'
-            } ${
-              isDarkMode ? 'border-slate-700' : 'border-slate-200'
-            }`}>
+            <div
+              aria-hidden={!advanced}
+              className={`absolute left-0 right-0 top-full mt-2 p-4 rounded-2xl border shadow-xl text-left origin-top transition-[opacity,transform,visibility] duration-200 ease-out will-change-transform ${
+                advanced
+                  ? 'visible opacity-100 translate-y-0 scale-100'
+                  : 'invisible opacity-0 -translate-y-2 scale-[0.98] pointer-events-none'
+              } ${
+                isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'
+              }`}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className={`md:pr-6 md:border-r ${
                   isDarkMode ? 'md:border-slate-700' : 'md:border-slate-200'
