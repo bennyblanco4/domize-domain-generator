@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AI-powered domain name generator built with Next.js and Google Gemini",
   "engines": {
-    "node": "20.x",
+    "node": "22.x",
     "npm": "10.x"
   },
   "scripts": {
@@ -40,6 +40,7 @@
     "kind-of": "^6.0.3",
     "lazy-cache": "^2.0.2",
     "lucide-react": "^0.477.0",
+    "next": "^15.3.5",
     "next-auth": "^4.24.11",
     "next-themes": "^0.4.4",
     "node-fetch": "^2.7.0",
@@ -66,7 +67,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
-    "next": "^15.3.5",
     "null-loader": "^4.0.1",
     "tailwindcss": "^4",
     "tsx": "^4.19.4",
